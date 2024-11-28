@@ -1,0 +1,70 @@
+IMPORT Flask, render_template, request
+IMPORT functions
+
+### Flask Application
+- call function that can initialize and return a Flask
+  application
+- DEFINE for home page
+    - Display HTML form
+- DEFINE for result page:
+    - Get user input (city)
+    - Call functions to get weather, attractions, restaurants, local events data
+    - show API results -> results.html
+
+
+### API integration
+
+# getting the weather data
+FUNCTION get_weather_data(city, month):
+- request to OpenWeather API with the city name
+- Get the useful information like temperature, rain, etc)
+- (RETURN) send those information to the user
+
+# getting dinning/restaurants data
+FUNCTION get_restaurants_data(city):
+- request to yelp API with city
+- get and extract the useful information
+    - restaurants name
+    - ratings
+- (RETURN) send the restaurants data back to the user
+
+# getting attractions information
+FUNCTION get_attractions_data(city):
+- request to foursquare API with city
+- get and extract the attraction information
+- (RETURN) send the attraction data back to the user
+
+# getting events/festival (local) information
+FUNCTION get_events_data(city, month):
+- request to eventbrite API with city and month
+- get and extract events information
+- (RETURN) send the events data back to the user
+
+# handling user inputs and displaying results
+FUNCTION getting_results_from_api(city, month)
+- weather = CALL get_weather_data(city, month):
+- restaurants = CALL get_restaurants_data(city):
+- attractions = get_attractions_data(city):
+- events = get_events_data(city, month):
+- put weather, restaurants, attractions, events to the results page (results.html)
+
+
+### index.html
+- User input
+    - "What city do you want to go?"
+    - "What month are you planning to travel"
+- Button to submit the input
+
+
+### results.html
+- Display weather data
+    - temperature, conditions
+- Display restaurants data
+    - names, ratings
+- Display attraction data
+    - names
+    - photos
+- Display events data
+    - names
+    - dates
+- All the data are returned from the APIs
