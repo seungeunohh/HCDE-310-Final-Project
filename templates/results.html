@@ -1,3 +1,4 @@
+<!-- results.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +7,11 @@
     <title>Restaurant Recommendations</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-<body>
+<body class="results-page">
     <div class="container">
-        <h1 class="mt-5">Dining Recommendations for {{ city }}</h1>
+        <h1 class="mt-5 city-heading">Dining Recommendations for {{ city }}</h1>
 
-        <p>Weather in {{ city }}: {{ weather }}</p>
+        <h2 class="weather-description">Weather in {{city}} : {{weather}}</h2>
 
         <h2>Top Restaurants</h2>
         <ul class="list-unstyled">
@@ -18,11 +19,14 @@
                 {% for restaurant in restaurants %}
                     <li class="mb-4">
                         <div class="d-flex align-items-center">
-                            <img src="{{ restaurant.image_url }}" alt="{{ restaurant.name }}" class="img-thumbnail me-3" style="width: 170px; height: 170px; object-fit: cover;">
+                            <!-- Restaurant Image -->
+                            <img src="{{ restaurant.image_url }}" alt="{{ restaurant.name }}" class="img-thumbnail me-3" style="width: 120px; height: 120px; object-fit: cover;">
+
                             <div>
                                 <strong>{{ restaurant.name }}</strong><br>
                                 Rating: {{ restaurant.rating }} ⭐<br>
                                 Address: {{ restaurant.address }}<br>
+                                Reviews: {{ restaurant.review }} customers
                             </div>
                         </div>
                     </li>

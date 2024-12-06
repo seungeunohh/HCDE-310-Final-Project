@@ -11,6 +11,7 @@ body {
 h1 {
     font-size: 36px;
     color: #0077b6;
+    font-family: 'Courgette', cursive;
 }
 
 p {
@@ -45,10 +46,20 @@ button:hover {
 
 /* Style for the restaurant list */
 .list-unstyled {
-    list-style-type: none;  /* Removes bullet points */
-    padding-left: 0;        /* Removes the left padding */
+    list-style-type: none;
+    padding-left: 0;
 }
 
 li {
-    margin-bottom: 70px; /* Adjust to your preference */
+    margin-bottom: 70px;
+}
+
+/* Adding spacing between weather and restaurants section */
+.weather-description {
+    margin-bottom: 50px;
+}
+
+/* Background color for the results.html */
+.results-page {
+    background-color: #ffb6b3
 }
