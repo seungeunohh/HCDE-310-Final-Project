@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dining Recommendations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Dining Recommendations</h1>
+        <p>Enter a city to get the current weather and top-rated dining places!</p>
+
+        <form method="POST" action="/">
+            <div class="mb-3">
+                <input type="text" class="form-control" id="city" name="city" placeholder="Enter city name" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Get Recommendations</button>
+        </form>
+    </div>
+</body>
+</html>

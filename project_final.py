@@ -1,0 +1,51 @@
+from flask import Flask, render_template, request
+import requests
+
+app = Flask(__name__)
+
+open_weather_key = <api_key>
+yelp_api_key = <api_key>
+
+
+def get_weather_data(city):
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={open_weather_key}&units=imperial"
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        weather_description = data['weather'][0]['description']
+        temperature = data['main']['temp']
+        return f"{weather_description.capitalize()}, {temperature} °F"
+    else:
+        return "Weather data unavailable"
+
+
+def get_restaurants_data(city):
+    url = f'https://api.yelp.com/v3/businesses/search?location={city}&categories=restaurants,cafes,food&sort_by=rating&limit=10'
+    headers = {'Authorization': f"Bearer {yelp_api_key}"}
+    response = requests.get(url, headers=headers)
+    restaurants = []
+
+    if response.status_code == 200:
+        data = response.json()
+        for business in data['businesses']:
+            restaurants.append({
+                "name": business['name'],
+                "rating": business['rating'],
+                "address": ", ".join(business['location']['display_address']),
+                "image_url": business['image_url'],
+            })
+    return restaurants
+
+
+@app.route('/', methods=['GET', 'POST'])
+def home():
+    if request.method == 'POST':
+        city = request.form['city']
+        weather = get_weather_data(city)
+        restaurants = get_restaurants_data(city)
+        return render_template('results.html', weather=weather, restaurants=restaurants, city=city)
+    return render_template('index.html')
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

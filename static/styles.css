@@ -1,0 +1,54 @@
+/* styles.css */
+
+body {
+    background-color: #caf0f8;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 36px;
+    color: #0077b6;
+}
+
+p {
+    font-size: 18px;
+    color: #0077b6;
+}
+
+/* Style for the form */
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 1px solid #0077b6;
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #00b4d8;
+}
+
+/* Style for the restaurant list */
+.list-unstyled {
+    list-style-type: none;  /* Removes bullet points */
+    padding-left: 0;        /* Removes the left padding */
+}
+
+li {
+    margin-bottom: 70px; /* Adjust to your preference */
+}
