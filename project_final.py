@@ -3,8 +3,8 @@ import requests
 
 app = Flask(__name__)
 
-open_weather_key = "42e0db3eff3e8f26179d7cc0dd37c6b0"
-yelp_api_key = "4gxqsxIgu-yLpq3FyyOdpCpUNySuh39fH8BlT4Shm7UIrvji1SAbVb5GO3mf5gZbf3RKP0KSiUwrXAMz3xLcaSr1N-uDDX52hS2h1ipf9csZk-VnB0LcpK6q3sNHZ3Yx"
+open_weather_key = <api_key>
+yelp_api_key = <api_key>
 
 
 def get_weather_data(city):
